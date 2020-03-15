@@ -1,10 +1,18 @@
 #include "holberton.h"
 
-void print_unsignedInt(va_list _unsignedinteger)
+/**
+ * print_unsignedInt - Prints unsigned integers.
+ * @_unsignedinteger:----
+ * Return: number of characters printed.
+ */
+
+int print_unsignedInt(va_list _unsignedinteger)
 {
-	unsigned int n, i, j;
+	unsigned int n, i, j, number;
 	unsigned int n1;
 	unsigned int z = 1;
+
+	number = 0;
 
 	n = va_arg(_unsignedinteger, unsigned int);
 
@@ -24,5 +32,7 @@ void print_unsignedInt(va_list _unsignedinteger)
 		_putchar((n1 / z) + '0');
 		n1 = n1 % z;
 		z = z / 10;
+		number++;
 	}
+	return (number);
 }

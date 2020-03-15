@@ -1,15 +1,18 @@
 #include "holberton.h"
 
 /**
- * print_int - Print
- * @n: Integer to print
- *
+ * print_int - Prints an integer.
+ * @_integer: -----
+ * Return: number of characters printed.
  */
-void print_int(va_list _integer)
+
+int print_int(va_list _integer)
 {
-	int n, i, j;
+	int n, i, j, number;
 	unsigned int n1;
 	int z = 1;
+
+	number = 0;
 
 	n = va_arg(_integer, int);
 
@@ -17,6 +20,7 @@ void print_int(va_list _integer)
 	{
 		n = -1 * n;
 		_putchar('-');
+		number++;
 	}
 	n1 = n;
 
@@ -34,5 +38,7 @@ void print_int(va_list _integer)
 		_putchar((n1 / z) + '0');
 		n1 = n1 % z;
 		z = z / 10;
+		number++;
 	}
+	return (number);
 }

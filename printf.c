@@ -9,14 +9,18 @@
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int i, j;
+	int i, j, char_number, total_char;
+
+	char_number = 0;
+	total_char = 0;
 	conversion_specifiers specifiers[] = {
 		{'c', print_char},
 		{'s', print_string},
 		{'i', print_int},
 		{'d', print_int},
 		{'b', print_binary},
-		{'u', print_unsignedInt}};
+		{'u', print_unsignedInt},
+		{'o', print_octal}};
 
 	va_start(list, format);
 
@@ -25,21 +29,21 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			for (j = 0; j < 5; j++)
+			for (j = 0; j < 7; j++)
 			{
 				if (specifiers[j].c_s == format[i])
 				{
-					specifiers[j].f(list);
+					char_number = specifiers[j].f(list);
+					total_char = total_char + char_number;
 				}
 			}
 		}
 		else
 		{
 			_putchar(format[i]);
+			total_char++;
 		}
 	}
-
 	va_end(list);
-
-	return (0);
+	return (total_char);
 }
