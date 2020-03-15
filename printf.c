@@ -1,20 +1,22 @@
 #include "holberton.h"
 
+/**
+ * _printf - Program used for formated printing.
+ * @format: ------.
+ * Return: ------.
+ */
+
 int _printf(const char *format, ...)
 {
 	va_list list;
 	int i, j;
-	conversion_specifiers specifiers[] =
-	    {
-		{"%c", print_char},
-		{"%s", print_string},
-		{"%i", print_int},
-		{"%d", print_int},
-		{"%b", print_binary},
-		{"%u", print_unsignedInt},
-		{"%o", print_binary},
-		{"%x", print_binary},
-		{"%X", print_binary}};
+	conversion_specifiers specifiers[] = {
+		{'c', print_char},
+		{'s', print_string},
+		{'i', print_int},
+		{'d', print_int},
+		{'b', print_binary},
+		{'u', print_unsignedInt}};
 
 	va_start(list, format);
 
@@ -25,7 +27,7 @@ int _printf(const char *format, ...)
 			i++;
 			for (j = 0; j < 5; j++)
 			{
-				if (specifiers[j].c_p[1] == format[i])
+				if (specifiers[j].c_s == format[i])
 				{
 					specifiers[j].f(list);
 				}
