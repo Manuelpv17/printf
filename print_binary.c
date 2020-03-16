@@ -15,6 +15,12 @@ int print_binary(va_list dectobin)
 
 	number = 0;
 
+	if (dec == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+
 	for (i = 0; dec != 0; i++)
 	{
 		bin[i] = (dec % 2) + '0';
