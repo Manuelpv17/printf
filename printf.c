@@ -20,7 +20,9 @@ int _printf(const char *format, ...)
 		{'d', print_int},
 		{'b', print_binary},
 		{'u', print_unsignedInt},
-		{'o', print_octal}};
+		{'o', print_octal},
+		{'x', print_hexadecimal},
+		{'X', print_hexCapital}};
 
 	va_start(list, format);
 
@@ -29,7 +31,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			for (j = 0; j < 7; j++)
+			for (j = 0; j < 9; j++)
 			{
 				if (specifiers[j].c_s == format[i])
 				{

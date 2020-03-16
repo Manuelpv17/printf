@@ -15,7 +15,7 @@ int print_octal(va_list dectooctal)
 
 	number = 0;
 
-	for (i = 0; oct[i] != 0; i++)
+	for (i = 0; dec != 0; i++)
 	{
 		oct[i] = (dec % 8) + '0';
 		dec = dec / 8;
