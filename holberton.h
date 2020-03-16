@@ -7,7 +7,7 @@ typedef struct conversion_specifiers
 {
 	char c_s;
 	int (*f)(va_list);
-} conversion_specifiers;
+} conversion_specif;
 
 int _putchar(char c);
 int _printf(const char *format, ...);
