@@ -19,7 +19,8 @@ int _printf(const char *format, ...)
 	    {'u', print_unsignedInt},
 	    {'o', print_octal},
 	    {'x', print_hexadecimal},
-	    {'X', print_hexCapital}};
+	    {'X', print_hexCapital},
+	    {'S', print_stringCapital}};
 
 	char_number = 0;
 	total_char = 0;

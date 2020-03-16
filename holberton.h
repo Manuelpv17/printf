@@ -2,6 +2,8 @@
 #define HOLBERTON_H
 
 #include <stdarg.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 typedef struct conversion_specifiers
 {
