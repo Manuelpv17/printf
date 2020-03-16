@@ -5,7 +5,6 @@
  * @dectohex:---
  * Return: number of characters printed.
  */
-
 int print_hexadecimal(va_list dectohex)
 {
 	unsigned int dec = va_arg(dectohex, unsigned int);
@@ -14,6 +13,12 @@ int print_hexadecimal(va_list dectohex)
 	char hex[300];
 
 	number = 0;
+
+	if (dec == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 
 	for (i = 0; dec != 0; i++)
 	{

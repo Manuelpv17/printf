@@ -13,6 +13,12 @@ int print_string(va_list _string)
 
 	number = 0;
 
+	if (s == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		_putchar(s[i]);
