@@ -5,11 +5,10 @@
  * @format: ------.
  * Return: ------.
  */
-
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int i, j, char_number, total_char;
+	int i, j, char_number = 0, total_char = 0, flag = 0;
 	conversion_specif specifiers[] = {
 	    {'c', print_char},
 	    {'s', print_string},
@@ -20,10 +19,9 @@ int _printf(const char *format, ...)
 	    {'o', print_octal},
 	    {'x', print_hexadecimal},
 	    {'X', print_hexCapital},
-	    {'S', print_stringCapital}};
+	    {'S', print_stringCapital},
+	    {'%', print_percentage}};
 
-	char_number = 0;
-	total_char = 0;
 	va_start(list, format);
 
 	for (i = 0; format[i] != '\0'; i++)
@@ -31,13 +29,20 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			for (j = 0; j < 9; j++)
+			for (j = 0; j < 11; j++)
 			{
 				if (specifiers[j].c_s == format[i])
 				{
 					char_number = specifiers[j].f(list);
-					total_char = total_char + char_number;
+					total_char += char_number;
+					flag = 1;
 				}
+			}
+			if (flag == 0)
+			{
+				_putchar(format[i - 1]);
+				_putchar(format[i]);
+				total_char = total_char + 2;
 			}
 		}
 		else
@@ -45,6 +50,7 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			total_char++;
 		}
+		flag = 0;
 	}
 	va_end(list);
 	return (total_char);
