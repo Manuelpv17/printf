@@ -23,5 +23,6 @@ int print_unsignedInt(va_list);
 int print_octal(va_list);
 int print_hexadecimal(va_list);
 int print_hexCapital(va_list);
+int print_percentage(va_list);
 
 #endif
