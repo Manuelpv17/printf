@@ -10,20 +10,19 @@ int _printf(const char *format, ...)
 {
 	va_list list;
 	int i, j, char_number, total_char;
+	conversion_specif specifiers[] = {
+	    {'c', print_char},
+	    {'s', print_string},
+	    {'i', print_int},
+	    {'d', print_int},
+	    {'b', print_binary},
+	    {'u', print_unsignedInt},
+	    {'o', print_octal},
+	    {'x', print_hexadecimal},
+	    {'X', print_hexCapital}};
 
 	char_number = 0;
 	total_char = 0;
-	conversion_specifiers specifiers[] = {
-		{'c', print_char},
-		{'s', print_string},
-		{'i', print_int},
-		{'d', print_int},
-		{'b', print_binary},
-		{'u', print_unsignedInt},
-		{'o', print_octal},
-		{'x', print_hexadecimal},
-		{'X', print_hexCapital}};
-
 	va_start(list, format);
 
 	for (i = 0; format[i] != '\0'; i++)
