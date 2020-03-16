@@ -1,11 +1,19 @@
 #include "holberton.h"
 
-void print_binary(va_list decToBin)
-{
-	unsigned int dec = va_arg(decToBin, unsigned int);
+/**
+ * print_binary - Converts a decimal number to binary and prints it.
+ * @dectobin:----
+ * Return: number of characters printed.
+ */
 
-	int i, j;
+int print_binary(va_list dectobin)
+{
+	unsigned int dec = va_arg(dectobin, unsigned int);
+
+	int i, j, number;
 	char bin[300];
+
+	number = 0;
 
 	for (i = 0; dec != 0; i++)
 	{
@@ -14,5 +22,9 @@ void print_binary(va_list decToBin)
 	}
 
 	for (j = i - 1; j >= 0; j--)
+	{
 		_putchar(bin[j]);
+		number++;
+	}
+	return (number);
 }
