@@ -2,7 +2,7 @@
 
 /**
  * print_int - Prints an integer.
- * @_integer: -----
+ * @_integer: Decimal number to be printed - inside va_list
  * Return: number of characters printed.
  */
 

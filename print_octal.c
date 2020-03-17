@@ -2,7 +2,7 @@
 
 /**
  * print_octal - Converts a decimal number to octal and prints it.
- * @dectooctal:---
+ * @dectooctal: Decimal number to be converted - inside va_list
  * Return: number of characters printed.
  */
 

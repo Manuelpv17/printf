@@ -2,7 +2,7 @@
 
 /**
  * print_hexadecimal - Converts a decimal number to hexadesimal and prints it.
- * @dectohex:---
+ * @dectohex: Decimal number to be converted - inside va_list
  * Return: number of characters printed.
  */
 int print_hexadecimal(va_list dectohex)

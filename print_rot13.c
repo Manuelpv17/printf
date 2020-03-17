@@ -2,7 +2,7 @@
 
 /**
  * print_rot13 - Prints strings in rot13.
- * @_string:----
+ * @_string: String to be printed in rot13 - inside va_list
  * Return: number of characters printed.
  */
 

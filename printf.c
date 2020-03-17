@@ -11,9 +11,9 @@ int _printf(const char *format, ...)
 {
 	va_list list;
 	int i, j, char_number = 0, total_char = 0, flag = 0;
-	conversion_specif specifiers[11];
+	conversion_specif specifiers[13];
 
-	for (i = 0; i < 11; i++)
+	for (i = 0; i < 13; i++)
 		specifiers[i] = definition(i);
 	va_start(list, format);
 
