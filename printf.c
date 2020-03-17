@@ -10,15 +10,17 @@ conversion_specif definition(int i);
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int i, j, char_number = 0, total_char = 0, flag = 0;
-	conversion_specif specifiers[13];
+	int i, j, char_number = 0, total_char = 0, flag = 0, splen = 13;
+	conversion_specif specifiers[splen];
 
-	for (i = 0; i < 13; i++)
-		specifiers[i] = definition(i);
 	va_start(list, format);
 
 	if (format == NULL)
 		return (-1);
+
+	for (i = 0; i < splen; i++)
+		specifiers[i] = definition(i);
+
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
@@ -26,7 +28,7 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == '\0')
 				return (-1);
 			i++;
-			for (j = 0; j < 11; j++)
+			for (j = 0; j < splen; j++)
 			{
 				if (specifiers[j].c_s == format[i])
 				{
