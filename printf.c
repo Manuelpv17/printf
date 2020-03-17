@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 {
 	va_list list;
 	int i, j, char_number = 0, total_char = 0, flag = 0, splen = 13;
-	conversion_specif specifiers[splen];
+	conversion_specif specifiers[13];
 
 	va_start(list, format);
 
