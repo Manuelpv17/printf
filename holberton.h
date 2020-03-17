@@ -5,6 +5,13 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+/**
+ * struct conversion_specifiers - Struct for symbols and functions
+ * @c_s: conversion specifier symbol
+ * @f: conversion specifier function
+ *
+ * Description: Symbols and functions of conversion specifiers
+ */
 typedef struct conversion_specifiers
 {
 	char c_s;
@@ -23,6 +30,9 @@ int print_unsignedInt(va_list);
 int print_octal(va_list);
 int print_hexadecimal(va_list);
 int print_hexCapital(va_list);
+int print_reverse(va_list);
+int print_rot13(va_list);
+
 int print_percentage(va_list);
 
 #endif
