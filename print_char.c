@@ -2,7 +2,7 @@
 
 /**
  * print_char - Prints characters.
- * @_char:----
+ * @_char: Char to be printed - inside va_list
  * Return: number of characters printed.
  */
 

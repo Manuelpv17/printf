@@ -1,28 +1,22 @@
 #include "holberton.h"
 
+conversion_specif definition(int i);
+
 /**
  * _printf - Program used for formated printing.
- * @format: ------.
- * Return: ------.
+ * @format: First argument of printf
+ * Return: Number of caracters printed
  */
 int _printf(const char *format, ...)
 {
 	va_list list;
 	int i, j, char_number = 0, total_char = 0, flag = 0;
-	conversion_specif specifiers[] = {
-	    {'c', print_char},
-	    {'s', print_string},
-	    {'i', print_int},
-	    {'d', print_int},
-	    {'b', print_binary},
-	    {'u', print_unsignedInt},
-	    {'o', print_octal},
-	    {'x', print_hexadecimal},
-	    {'X', print_hexCapital},
-	    {'S', print_stringCapital},
-	    {'%', print_percentage}};
+	conversion_specif specifiers[11];
 
+	for (i = 0; i < 11; i++)
+		specifiers[i] = definition(i);
 	va_start(list, format);
+
 	if (format == NULL)
 		return (-1);
 	for (i = 0; format[i] != '\0'; i++)
@@ -57,4 +51,24 @@ int _printf(const char *format, ...)
 	}
 	va_end(list);
 	return (total_char);
+}
+
+conversion_specif definition(int i)
+{
+	conversion_specif specifiers[] = {
+	    {'c', print_char},
+	    {'s', print_string},
+	    {'i', print_int},
+	    {'d', print_int},
+	    {'b', print_binary},
+	    {'u', print_unsignedInt},
+	    {'o', print_octal},
+	    {'x', print_hexadecimal},
+	    {'X', print_hexCapital},
+	    {'S', print_stringCapital},
+	    {'r', print_reverse},
+	    {'R', print_rot13},
+	    {'%', print_percentage}};
+
+	return (specifiers[i]);
 }

@@ -2,10 +2,9 @@
 
 /**
  * print_binary - Converts a decimal number to binary and prints it.
- * @dectobin:----
+ * @dectobin: Decimal number to be converted - inside va_list
  * Return: number of characters printed.
  */
-
 int print_binary(va_list dectobin)
 {
 	unsigned int dec = va_arg(dectobin, unsigned int);
