@@ -3,15 +3,15 @@
 /**
  * print_reverse - Prints strings.
  * @_reverse: String to be printed in revers - inside va_list
+ * @buffer: Buffer where the characters to be print are save
+ * @number: Position in the buffer
  * Return: number of characters printed.
  */
 
-int print_reverse(va_list _reverse)
+int print_reverse(va_list _reverse, char *buffer, int number)
 {
 	char *s = va_arg(_reverse, char *);
-	int i, j, number;
-
-	number = 0;
+	int i, j;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
@@ -19,7 +19,7 @@ int print_reverse(va_list _reverse)
 
 	for (j = i; j >= 0; j--)
 	{
-		_putchar(s[j]);
+		buffer[number] = s[j];
 		number++;
 	}
 	return (number);

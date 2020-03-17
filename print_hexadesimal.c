@@ -3,21 +3,21 @@
 /**
  * print_hexadecimal - Converts a decimal number to hexadesimal and prints it.
  * @dectohex: Decimal number to be converted - inside va_list
+ * @buffer: Buffer where the characters to be print are save
+ * @number: Position in the buffer
  * Return: number of characters printed.
  */
-int print_hexadecimal(va_list dectohex)
+int print_hexadecimal(va_list dectohex, char *buffer, int number)
 {
 	unsigned int dec = va_arg(dectohex, unsigned int);
 
-	int i, j, temp, number;
+	int i, j, temp;
 	char hex[300];
-
-	number = 0;
 
 	if (dec == 0)
 	{
-		_putchar('0');
-		return (1);
+		buffer[number] = '0';
+		return (number + 1);
 	}
 
 	for (i = 0; dec != 0; i++)
@@ -33,7 +33,7 @@ int print_hexadecimal(va_list dectohex)
 
 	for (j = i - 1; j >= 0; j--)
 	{
-		_putchar(hex[j]);
+		buffer[number] = hex[j];
 		number++;
 	}
 	return (number);
