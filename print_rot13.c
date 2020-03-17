@@ -3,18 +3,18 @@
 /**
  * print_rot13 - Prints strings in rot13.
  * @_string: String to be printed in rot13 - inside va_list
+ * @buffer: Buffer where the characters to be print are save
+ * @number: Position in the buffer
  * Return: number of characters printed.
  */
 
-int print_rot13(va_list _string)
+int print_rot13(va_list _string, char *buffer, int number)
 {
 	char *s = va_arg(_string, char *);
-	int i, j, number;
+	int i, j;
 
 	char input[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char output[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-
-	number = 0;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
@@ -22,14 +22,14 @@ int print_rot13(va_list _string)
 		{
 			if (input[j] == s[i])
 			{
-				_putchar(output[j]);
+				buffer[number] = output[j];
 				number++;
 				break;
 			}
 		}
 		if (input[j] != s[i])
 		{
-			_putchar(s[i]);
+			buffer[number] = s[i];
 			number++;
 		}
 	}

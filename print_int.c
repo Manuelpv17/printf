@@ -3,23 +3,23 @@
 /**
  * print_int - Prints an integer.
  * @_integer: Decimal number to be printed - inside va_list
+ * @buffer: Buffer where the characters to be print are save
+ * @number: Position in the buffer
  * Return: number of characters printed.
  */
 
-int print_int(va_list _integer)
+int print_int(va_list _integer, char *buffer, int number)
 {
-	int n, i, j, number;
+	int n, i, j;
 	unsigned int n1;
 	int z = 1;
-
-	number = 0;
 
 	n = va_arg(_integer, int);
 
 	if (n < 0)
 	{
 		n = -1 * n;
-		_putchar('-');
+		buffer[number] = '-';
 		number++;
 	}
 	n1 = n;
@@ -35,7 +35,7 @@ int print_int(va_list _integer)
 
 	for (; z != 0;)
 	{
-		_putchar((n1 / z) + '0');
+		buffer[number] = (n1 / z) + '0';
 		n1 = n1 % z;
 		z = z / 10;
 		number++;
