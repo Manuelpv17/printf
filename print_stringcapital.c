@@ -4,7 +4,7 @@
  * print_stringCapital - Prints strings in capital letters
  * @_stringcapital: String to be printed - inside va_list
  * @buffer: Buffer where the characters to be print are save
- * @number: Position in the buffer
+ * @number: Position in the buffer.
  * Return: number of characters printed.
  */
 
