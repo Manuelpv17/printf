@@ -23,11 +23,14 @@ int _printf(const char *format, ...)
 	    {'%', print_percentage}};
 
 	va_start(list, format);
-
-	for (i = 0; format != NULL && format[i] != '\0'; i++)
+	if (format == NULL)
+		return (-1);
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
+			if (format[i + 1] == '\0')
+				return (-1);
 			i++;
 			for (j = 0; j < 11; j++)
 			{
