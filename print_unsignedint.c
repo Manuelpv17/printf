@@ -2,7 +2,7 @@
 
 /**
  * print_unsignedInt - Prints unsigned integers.
- * @_unsignedinteger:----
+ * @_unsignedinteger: Decimal to be printed - inside va_list
  * Return: number of characters printed.
  */
 

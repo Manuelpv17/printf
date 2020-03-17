@@ -2,7 +2,7 @@
 
 /**
  * print_reverse - Prints strings.
- * @_reverse:----
+ * @_reverse: String to be printed in revers - inside va_list
  * Return: number of characters printed.
  */
 

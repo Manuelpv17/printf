@@ -1,8 +1,8 @@
 #include "holberton.h"
 
 /**
- * print_stringCapital - Prints strings.
- * @_stringcapital:----
+ * print_stringCapital - Prints strings in capital letters
+ * @_stringcapital: String to be printed - inside va_list
  * Return: number of characters printed.
  */
 

@@ -2,7 +2,7 @@
 
 /**
  * print_hexCapital - Converts a decimal number to HEXADECIMAL and prints it.
- * @dectohex:---
+ * @dectohex: Decimal number to be converted - inside va_list
  * Return: number of characters printed.
  */
 
