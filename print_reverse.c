@@ -12,12 +12,22 @@ int print_reverse(va_list _reverse, char *buffer, int number)
 {
 	char *s = va_arg(_reverse, char *);
 	int i, j;
+	char nu[7] = "(null)";
 
+	if (s == NULL)
+	{
+		for (i = 0; i < 6; i++)
+		{
+			buffer[number] = nu[i];
+			number++;
+		}
+		return (number);
+	}
 	for (i = 0; s[i] != '\0'; i++)
 	{
 	}
 
-	for (j = i; j >= 0; j--)
+	for (j = i - 1; j >= 0; j--)
 	{
 		buffer[number] = s[j];
 		number++;
