@@ -12,7 +12,8 @@ int print_hexCapital(va_list dectohex, char *buffer, int number)
 {
 	unsigned int dec = va_arg(dectohex, unsigned int);
 
-	int i, j, temp;
+	unsigned int temp;
+	int i, j;
 	char hex[300];
 
 	if (dec == 0)
