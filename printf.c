@@ -38,8 +38,11 @@ int _printf(const char *format, ...)
 				if (specifiers[j].c_s == format[i])
 				{
 					cont = specifiers[j].f(list, buffer, cont);
-
 					flag = 1;
+
+					write(1, buffer, cont);
+					cont_t += cont;
+					cont = 0;
 				}
 			}
 			if (flag == 0)
@@ -55,11 +58,9 @@ int _printf(const char *format, ...)
 			cont++;
 		}
 		flag = 0;
-		write(1, buffer, cont);
-		cont_t += cont;
-		cont = 0;
 	}
-
+	write(1, buffer, cont);
+	cont_t += cont;
 	va_end(list);
 	free(buffer);
 	return (cont_t);
