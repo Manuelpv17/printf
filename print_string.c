@@ -12,11 +12,16 @@ int print_string(va_list _string, char *buffer, int number)
 {
 	char *s = va_arg(_string, char *);
 	int i;
+	char nu[7] = "(null)";
 
 	if (s == NULL)
 	{
-		write(1, "(null)", 6);
-		return (6);
+		for (i = 0; i < 6; i++)
+		{
+			buffer[number] = nu[i];
+			number++;
+		}
+		return (number);
 	}
 
 	for (i = 0; s[i] != '\0'; i++)
