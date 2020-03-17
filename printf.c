@@ -10,7 +10,7 @@ conversion_specif definition(int i);
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int i, j, total_char = 0, flag = 0, splen = 13;
+	int i, j, cont = 0, cont_t = 0, flag = 0, splen = 13;
 	conversion_specif specifiers[13];
 	char *buffer;
 
@@ -37,29 +37,32 @@ int _printf(const char *format, ...)
 			{
 				if (specifiers[j].c_s == format[i])
 				{
-					total_char = specifiers[j].f(list, buffer, total_char);
+					cont = specifiers[j].f(list, buffer, cont);
+
 					flag = 1;
 				}
 			}
 			if (flag == 0)
 			{
-				buffer[total_char] = format[i - 1];
-				buffer[total_char + 1] = format[i];
-				total_char = total_char + 2;
+				buffer[cont] = format[i - 1];
+				buffer[cont + 1] = format[i];
+				cont = cont + 2;
 			}
 		}
 		else
 		{
-			buffer[total_char] = format[i];
-			total_char++;
+			buffer[cont] = format[i];
+			cont++;
 		}
 		flag = 0;
+		write(1, buffer, cont);
+		cont_t += cont;
+		cont = 0;
 	}
 
-	write(1, buffer, total_char);
 	va_end(list);
 	free(buffer);
-	return (total_char);
+	return (cont_t);
 }
 
 conversion_specif definition(int i)
