@@ -14,12 +14,23 @@ int print_pointer(va_list _string, char *buffer, int number)
 	int i, j;
 	unsigned int temp;
 	char hex[300];
+	char nu[] = "(nil)";
 
+	if (dec == 0)
+	{
+		for (i = 0; nu[i] != '\0'; i++)
+		{
+			buffer[number] = nu[i];
+			number++;
+		}
+		return (number);
+	}
 	if (dec == 0)
 	{
 		buffer[number] = '0';
 		return (number + 1);
 	}
+
 	buffer[number] = '0';
 	number++;
 	buffer[number] = 'x';
