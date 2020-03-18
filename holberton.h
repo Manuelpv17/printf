@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * struct conversion_specifiers - Struct for symbols and functions
@@ -22,7 +23,7 @@ int _printf(const char *format, ...);
 
 int print_char(va_list, char *, int);
 int print_string(va_list, char *, int);
-int print_stringCapital(va_list, char *, int);
+int print_custom_s(va_list, char *, int);
 int print_int(va_list, char *, int);
 int print_binary(va_list, char *, int);
 int print_unsignedInt(va_list, char *, int);

@@ -10,7 +10,7 @@
 
 int print_octal(va_list dectooctal, char *buffer, int number)
 {
-	unsigned int dec = va_arg(dectooctal, unsigned int);
+	unsigned int dec = va_arg(dectooctal, long unsigned int);
 
 	int i, j;
 	char oct[300];

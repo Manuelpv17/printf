@@ -65,19 +65,19 @@ int _printf(const char *format, ...)
 conversion_specif definition(int i)
 {
 	conversion_specif specifiers[] = {
-	    {'c', print_char},
-	    {'s', print_string},
-	    {'i', print_int},
-	    {'d', print_int},
-	    {'b', print_binary},
-	    {'u', print_unsignedInt},
-	    {'o', print_octal},
-	    {'x', print_hexadecimal},
-	    {'X', print_hexCapital},
-	    {'S', print_stringCapital},
-	    {'r', print_reverse},
-	    {'R', print_rot13},
-	    {'%', print_percentage}};
+		{'c', print_char},
+		{'s', print_string},
+		{'i', print_int},
+		{'d', print_int},
+		{'b', print_binary},
+		{'u', print_unsignedInt},
+		{'o', print_octal},
+		{'x', print_hexadecimal},
+		{'X', print_hexCapital},
+		{'S', print_custom_s},
+		{'r', print_reverse},
+		{'R', print_rot13},
+		{'%', print_percentage}};
 
 	return (specifiers[i]);
 }
