@@ -16,6 +16,12 @@ int print_unsignedInt(va_list _unsignedinteger, char *buffer, int number)
 
 	n = va_arg(_unsignedinteger, unsigned int);
 
+	if (n == 0)
+	{
+		buffer[number] = '0';
+		return (number + 1);
+	}
+
 	n1 = n;
 
 	for (i = 0; n / 10 != 0; i++)
