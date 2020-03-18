@@ -10,8 +10,8 @@ conversion_specif definition(int i);
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int i, j, total_char = 0, flag = 0, splen = 13;
-	conversion_specif specifiers[13];
+	int i, j, total_char = 0, flag = 0, splen = 14;
+	conversion_specif specifiers[14];
 	char *buffer;
 
 	va_start(list, format);
@@ -77,6 +77,7 @@ conversion_specif definition(int i)
 		{'S', print_custom_s},
 		{'r', print_reverse},
 		{'R', print_rot13},
+		{'p', print_pointer},
 		{'%', print_percentage}};
 
 	return (specifiers[i]);
