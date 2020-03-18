@@ -33,6 +33,7 @@ int print_hexadecimal(va_list, char *, int);
 int print_hexCapital(va_list, char *, int);
 int print_reverse(va_list, char *, int);
 int print_rot13(va_list, char *, int);
+int print_pointer(va_list _string, char *buffer, int number);
 
 int print_percentage(va_list, char *, int);
 
