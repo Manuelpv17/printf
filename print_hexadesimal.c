@@ -9,7 +9,7 @@
  */
 int print_hexadecimal(va_list dectohex, char *buffer, int number)
 {
-	unsigned int dec = va_arg(dectohex, long unsigned int);
+	unsigned int dec = va_arg(dectohex, unsigned long int);
 
 	unsigned int temp;
 	int i, j;
