@@ -17,31 +17,21 @@ int print_custom_s(va_list _string, char *buffer, int number)
 	char hex[20];
 
 	s = va_arg(_string, char *);
-
 	if (s == NULL)
 	{
 		for (i = 0; i < 6; i++)
-		{
-			buffer[number] = nu[i];
-			number++;
-		}
+			buffer[number++] = nu[i];
 		return (number);
 	}
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if ((s[i] >= 0 && s[i] < 31) || (s[i] >= 127))
+		if ((s[i] >= 0 && s[i] <= 31) || (s[i] >= 127))
 		{
-			buffer[number] = '\\';
-			number++;
-			buffer[number] = 'x';
-			number++;
-
+			buffer[number++] = '\\';
+			buffer[number++] = 'x';
 			dec = s[i] - 0;
 			if (dec <= 15)
-			{
-				buffer[number] = '0';
-				number++;
-			}
+				buffer[number++] = '0';
 			for (h = 0; dec != 0; h++)
 			{
 				temp = 0;
@@ -53,16 +43,10 @@ int print_custom_s(va_list _string, char *buffer, int number)
 				dec = dec / 16;
 			}
 			for (j = h - 1; j >= 0; j--)
-			{
-				buffer[number] = hex[j];
-				number++;
-			}
+				buffer[number++] = hex[j];
 		}
 		else
-		{
-			buffer[number] = s[i];
-			number++;
-		}
+			buffer[number++] = s[i];
 	}
 	return (number);
 }
