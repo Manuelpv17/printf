@@ -21,9 +21,12 @@ int print_unsignedInt(va_list _unsignedinteger, char *buffer, int number)
 		buffer[number] = '0';
 		return (number + 1);
 	}
-
+	else if (n == 1)
+	{
+		buffer[number] = '1';
+		return (number + 1);
+	}
 	n1 = n;
-
 	for (i = 0; n / 10 != 0; i++)
 	{
 		n = n / 10;
@@ -32,7 +35,6 @@ int print_unsignedInt(va_list _unsignedinteger, char *buffer, int number)
 	{
 		z = z * 10;
 	}
-
 	for (; z != 0;)
 	{
 		buffer[number] = (n1 / z) + '0';
