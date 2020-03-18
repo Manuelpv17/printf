@@ -23,7 +23,7 @@ holberton.h
 
 ## Format specifiers accepted: ##
 
-* % -> percentage sign 
+* % -> percentage sign
 * c -> character
 * s -> string
 * d -> decimal
