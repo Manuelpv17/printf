@@ -52,6 +52,7 @@ Translate an argument (expected to be string (char *)) into ROT13 notation and c
 .TP
 .B %
 A '%' character is copied into standard output string without argument conversion or replacement. The option is used like this: "%%"
+.TP
 .B p
 A memory address in hexadecimal notation is copied into standard output string. The option is used like this: "%p"
 .SH EXAMPLE
