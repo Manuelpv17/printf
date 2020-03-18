@@ -30,7 +30,6 @@ int print_pointer(va_list _string, char *buffer, int number)
 		buffer[number] = '0';
 		return (number + 1);
 	}
-
 	buffer[number] = '0';
 	number++;
 	buffer[number] = 'x';
@@ -45,12 +44,10 @@ int print_pointer(va_list _string, char *buffer, int number)
 			hex[i] = temp + 87;
 		dec = dec / 16;
 	}
-
 	for (j = i - 1; j >= 0; j--)
 	{
 		buffer[number] = hex[j];
 		number++;
 	}
-
 	return (number);
 }
