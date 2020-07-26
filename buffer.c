@@ -8,10 +8,19 @@
 */
 int _buffer(char c)
 {
-	/**
-	buffer = malloc(sizeof(char) * 5024);
-	if (buffer == NULL)
-		return (-1);
-	*/
-	return (write(1, &c, 1));
+	static char buffer[1024];
+	static int i = 0;
+
+	if (i == 1024)
+	{
+		write(1, buffer, 1024);
+		i = 0;
+	}
+	if (c == -1)
+		write(1, buffer, i);
+
+	buffer[i] = c;
+	i++;
+
+	return (1);
 }

@@ -51,6 +51,7 @@ int _printf(const char *format, ...)
 		}
 	}
 
+	_buffer(-1);
 	va_end(list);
 	return (total_char);
 }
