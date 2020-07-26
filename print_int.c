@@ -8,7 +8,7 @@
  * Return: number of characters printed.
  */
 
-int print_int(va_list _integer, char *buffer, int number)
+int print_int(va_list _integer, int number)
 {
 	int n, i, j;
 	unsigned int n1;
@@ -19,7 +19,7 @@ int print_int(va_list _integer, char *buffer, int number)
 	if (n < 0)
 	{
 		n = -1 * n;
-		buffer[number] = '-';
+		_buffer('-');
 		number++;
 	}
 	n1 = n;
@@ -35,10 +35,10 @@ int print_int(va_list _integer, char *buffer, int number)
 
 	for (; z != 0;)
 	{
-		buffer[number] = (n1 / z) + '0';
+		_buffer((n1 / z) + '0');
+		number++;
 		n1 = n1 % z;
 		z = z / 10;
-		number++;
 	}
 	return (number);
 }

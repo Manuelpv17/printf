@@ -10,21 +10,15 @@ conversion_specif definition(int i);
 int _printf(const char *format, ...)
 {
 	va_list list;
-	int i, j, total_char = 0, flag = 0, splen = 14;
+	int i, j, total_char = 0, flag, specifiers_len = 14;
 	conversion_specif specifiers[14];
-	char *buffer;
 
 	va_start(list, format);
-
 	if (format == NULL)
 		return (-1);
 
-	for (i = 0; i < splen; i++)
+	for (i = 0; i < specifiers_len; i++)
 		specifiers[i] = definition(i);
-
-	buffer = malloc(sizeof(char) * 5024);
-	if (buffer == NULL)
-		return (-1);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -32,33 +26,32 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 				return (-1);
+
+			flag = 0;
 			i++;
-			for (j = 0; j < splen; j++)
+			for (j = 0; j < specifiers_len; j++)
 			{
 				if (specifiers[j].c_s == format[i])
 				{
-					total_char = specifiers[j].f(list, buffer, total_char);
+					total_char = specifiers[j].f(list, total_char);
 					flag = 1;
 				}
 			}
 			if (flag == 0)
 			{
-				buffer[total_char] = format[i - 1];
-				buffer[total_char + 1] = format[i];
+				_buffer(format[i - 1]);
+				_buffer(format[i]);
 				total_char = total_char + 2;
 			}
 		}
 		else
 		{
-			buffer[total_char] = format[i];
+			_buffer(format[i]);
 			total_char++;
 		}
-		flag = 0;
 	}
 
-	write(1, buffer, total_char);
 	va_end(list);
-	free(buffer);
 	return (total_char);
 }
 

@@ -16,25 +16,26 @@
 typedef struct conversion_specifiers
 {
 	char c_s;
-	int (*f)(va_list, char *, int);
+	int (*f)(va_list, int);
 } conversion_specif;
 
 int _printf(const char *format, ...);
 
-int print_char(va_list, char *, int);
-int print_string(va_list, char *, int);
-int print_custom_s(va_list, char *, int);
-int print_int(va_list, char *, int);
-int print_binary(va_list, char *, int);
-int print_unsignedInt(va_list, char *, int);
-int print_unsignedInt(va_list, char *, int);
-int print_octal(va_list, char *, int);
-int print_hexadecimal(va_list, char *, int);
-int print_hexCapital(va_list, char *, int);
-int print_reverse(va_list, char *, int);
-int print_rot13(va_list, char *, int);
-int print_pointer(va_list _string, char *buffer, int number);
+int print_char(va_list, int);
+int print_string(va_list, int);
+int print_custom_s(va_list, int);
+int print_int(va_list, int);
+int print_binary(va_list, int);
+int print_unsignedInt(va_list, int);
+int print_unsignedInt(va_list, int);
+int print_octal(va_list, int);
+int print_hexadecimal(va_list, int);
+int print_hexCapital(va_list, int);
+int print_reverse(va_list, int);
+int print_rot13(va_list, int);
+int print_pointer(va_list _string, int number);
 
-int print_percentage(va_list, char *, int);
+int print_percentage(va_list, int);
+int _buffer(char c);
 
 #endif

@@ -8,8 +8,8 @@
  * Return: number of characters printed.
  */
 
-int print_char(va_list _char, char *buffer, int number)
+int print_char(va_list _char, int number)
 {
-	buffer[number] = va_arg(_char, int);
+	_buffer(va_arg(_char, int));
 	return (number + 1);
 }

@@ -3,12 +3,11 @@
 /**
  * print_pointer - Prints the adress of a variable.
  * @_string: String to be printed - inside va_list
- * @buffer: Buffer where the characters to be print are save
  * @number: Position in the buffer
  * Return: number of characters printed.
  */
 
-int print_pointer(va_list _string, char *buffer, int number)
+int print_pointer(va_list _string, int number)
 {
 	unsigned long int dec = va_arg(_string, unsigned long int);
 	int i, j;
@@ -20,20 +19,19 @@ int print_pointer(va_list _string, char *buffer, int number)
 	{
 		for (i = 0; nu[i] != '\0'; i++)
 		{
-			buffer[number] = nu[i];
+			_buffer(nu[i]);
 			number++;
 		}
 		return (number);
 	}
 	if (dec == 0)
 	{
-		buffer[number] = '0';
+		_buffer('0');
 		return (number + 1);
 	}
-	buffer[number] = '0';
-	number++;
-	buffer[number] = 'x';
-	number++;
+	_buffer('0');
+	_buffer('x');
+	number += 2;
 	for (i = 0; dec != 0; i++)
 	{
 		temp = 0;
@@ -46,7 +44,7 @@ int print_pointer(va_list _string, char *buffer, int number)
 	}
 	for (j = i - 1; j >= 0; j--)
 	{
-		buffer[number] = hex[j];
+		_buffer(hex[j]);
 		number++;
 	}
 	return (number);

@@ -7,8 +7,8 @@
  * @n: Position in the buffer
  * Return: number of characters printed.
  */
-int print_percentage(va_list o __attribute__((__unused__)), char *b, int n)
+int print_percentage(va_list o __attribute__((__unused__)), int n)
 {
-	b[n] = '%';
+	_buffer('%');
 	return (n + 1);
 }

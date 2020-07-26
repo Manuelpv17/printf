@@ -3,11 +3,10 @@
 /**
  * print_binary - Converts a decimal number to binary and prints it.
  * @dectobin: Decimal number to be converted - inside va_list
- * @buffer: Buffer where the characters to be print are save
  * @number: Position in the buffer
  * Return: number of characters printed.
  */
-int print_binary(va_list dectobin, char *buffer, int number)
+int print_binary(va_list dectobin, int number)
 {
 	unsigned int dec = va_arg(dectobin, unsigned int);
 
@@ -16,7 +15,7 @@ int print_binary(va_list dectobin, char *buffer, int number)
 
 	if (dec == 0)
 	{
-		buffer[number] = '0';
+		_buffer('0');
 		return (number + 1);
 	}
 
@@ -28,7 +27,7 @@ int print_binary(va_list dectobin, char *buffer, int number)
 
 	for (j = i - 1; j >= 0; j--)
 	{
-		buffer[number] = bin[j];
+		_buffer(bin[j]);
 		number++;
 	}
 	return (number);

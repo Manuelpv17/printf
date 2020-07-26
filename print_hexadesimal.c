@@ -7,7 +7,7 @@
  * @number: Position in the buffer
  * Return: number of characters printed.
  */
-int print_hexadecimal(va_list dectohex, char *buffer, int number)
+int print_hexadecimal(va_list dectohex, int number)
 {
 	unsigned int dec = va_arg(dectohex, unsigned long int);
 
@@ -17,7 +17,7 @@ int print_hexadecimal(va_list dectohex, char *buffer, int number)
 
 	if (dec == 0)
 	{
-		buffer[number] = '0';
+		_buffer('0');
 		return (number + 1);
 	}
 
@@ -34,7 +34,7 @@ int print_hexadecimal(va_list dectohex, char *buffer, int number)
 
 	for (j = i - 1; j >= 0; j--)
 	{
-		buffer[number] = hex[j];
+		_buffer(hex[j]);
 		number++;
 	}
 	return (number);

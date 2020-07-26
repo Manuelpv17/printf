@@ -3,12 +3,11 @@
 /**
  * print_rot13 - Prints strings in rot13.
  * @_string: String to be printed in rot13 - inside va_list
- * @buffer: Buffer where the characters to be print are save
  * @number: Position in the buffer
  * Return: number of characters printed.
  */
 
-int print_rot13(va_list _string, char *buffer, int number)
+int print_rot13(va_list _string, int number)
 {
 	char *s = va_arg(_string, char *);
 	int i, j;
@@ -22,14 +21,14 @@ int print_rot13(va_list _string, char *buffer, int number)
 		{
 			if (input[j] == s[i])
 			{
-				buffer[number] = output[j];
+				_buffer(output[j]);
 				number++;
 				break;
 			}
 		}
 		if (input[j] != s[i])
 		{
-			buffer[number] = s[i];
+			_buffer(s[i]);
 			number++;
 		}
 	}

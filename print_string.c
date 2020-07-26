@@ -8,7 +8,7 @@
  * Return: number of characters printed.
  */
 
-int print_string(va_list _string, char *buffer, int number)
+int print_string(va_list _string, int number)
 {
 	char *s = va_arg(_string, char *);
 	int i;
@@ -18,7 +18,7 @@ int print_string(va_list _string, char *buffer, int number)
 	{
 		for (i = 0; i < 6; i++)
 		{
-			buffer[number] = nu[i];
+			_buffer(nu[i]);
 			number++;
 		}
 		return (number);
@@ -26,7 +26,7 @@ int print_string(va_list _string, char *buffer, int number)
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		buffer[number] = s[i];
+		_buffer(s[i]);
 		number++;
 	}
 	return (number);

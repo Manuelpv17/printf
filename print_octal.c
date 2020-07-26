@@ -8,7 +8,7 @@
  * Return: number of characters printed.
  */
 
-int print_octal(va_list dectooctal, char *buffer, int number)
+int print_octal(va_list dectooctal, int number)
 {
 	unsigned int dec = va_arg(dectooctal, unsigned long int);
 
@@ -17,7 +17,7 @@ int print_octal(va_list dectooctal, char *buffer, int number)
 
 	if (dec == 0)
 	{
-		buffer[number] = '0';
+		_buffer('0');
 		return (number + 1);
 	}
 
@@ -29,7 +29,7 @@ int print_octal(va_list dectooctal, char *buffer, int number)
 
 	for (j = i - 1; j >= 0; j--)
 	{
-		buffer[number] = oct[j];
+		_buffer(oct[j]);
 		number++;
 	}
 	return (number);

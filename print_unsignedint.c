@@ -3,12 +3,10 @@
 /**
  * print_unsignedInt - Prints unsigned integers.
  * @_unsignedinteger: Decimal to be printed - inside va_list
- * @buffer: Buffer where the characters to be print are save
  * @number: Position in the buffer
  * Return: number of characters printed.
  */
-
-int print_unsignedInt(va_list _unsignedinteger, char *buffer, int number)
+int print_unsignedInt(va_list _unsignedinteger, int number)
 {
 	unsigned int n, i, j;
 	unsigned int n1;
@@ -18,12 +16,12 @@ int print_unsignedInt(va_list _unsignedinteger, char *buffer, int number)
 
 	if (n == 0)
 	{
-		buffer[number] = '0';
+		_buffer('0');
 		return (number + 1);
 	}
 	else if (n == 1)
 	{
-		buffer[number] = '1';
+		_buffer('1');
 		return (number + 1);
 	}
 	n1 = n;
@@ -37,10 +35,10 @@ int print_unsignedInt(va_list _unsignedinteger, char *buffer, int number)
 	}
 	for (; z != 0;)
 	{
-		buffer[number] = (n1 / z) + '0';
+		_buffer((n1 / z) + '0');
+		number++;
 		n1 = n1 % z;
 		z = z / 10;
-		number++;
 	}
 	return (number);
 }
